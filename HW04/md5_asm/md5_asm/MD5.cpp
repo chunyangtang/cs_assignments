@@ -210,23 +210,12 @@ void MD5::FRound(DWORD& a, DWORD& b, DWORD& c, DWORD& d, DWORD mj, DWORD s, DWOR
         add r8d,r15d
 
         // temp = (temp << s) | (temp >> (32 - s))
-        // temp->eax
-        mov eax,r8d
         // Backup rcx content
         mov rbx,rcx
         // s->cl
         mov cl,s
-        // temp << s
-        shl r8d,cl
-
-        // 32-s->cl
-        mov cl,32
-        sub cl,s
-        // temp >> (32-s)
-        shr eax,cl
-
-        // |
-        or r8d,eax
+        // rotate left s
+        rol r8d,cl
         // restore rcx content
         mov rcx,rbx
 
@@ -333,24 +322,12 @@ void MD5::GRound(DWORD& a, DWORD& b, DWORD& c, DWORD& d, DWORD mj, DWORD s, DWOR
         add r8d,r15d
 
         // temp = (temp << s) | (temp >> (32 - s))
-        // temp->eax
-        mov eax,r8d
         // Backup rcx content
         mov rbx,rcx
         // s->cl
         mov cl,s
-        
-        // temp << s
-        shl r8d,cl
-
-        // 32-s->cl
-        mov cl,32
-        sub cl,s
-        // temp >> (32-s)
-        shr eax,cl
-
-        // |
-        or r8d,eax
+        // rotate left s
+        rol r8d,cl
         // restore rcx content
         mov rcx,rbx
         
@@ -455,23 +432,12 @@ void MD5::HRound(DWORD& a, DWORD& b, DWORD& c, DWORD& d, DWORD mj, DWORD s, DWOR
         add r8d,r15d
 
         // temp = (temp << s) | (temp >> (32 - s))
-        // temp->eax
-        mov eax,r8d
         // Backup rcx content
         mov rbx,rcx
         // s->cl
         mov cl,s
-        // temp << s
-        shl r8d,cl
-
-        // 32-s->cl
-        mov cl,32
-        sub cl,s
-        // temp >> (32-s)
-        shr eax,cl
-
-        // |
-        or r8d,eax
+        // rotate left s
+        rol r8d,cl
         // restore rcx content
         mov rcx,rbx
 
@@ -574,23 +540,12 @@ void MD5::RRound(DWORD& a, DWORD& b, DWORD& c, DWORD& d, DWORD mj, DWORD s, DWOR
         add r8d,r15d
 
         // temp = (temp << s) | (temp >> (32 - s))
-        // temp->eax
-        mov eax,r8d
         // Backup rcx content
         mov rbx,rcx
         // s->cl
         mov cl,s
-        // temp << s
-        shl r8d,cl
-
-        // 32-s->cl
-        mov cl,32
-        sub cl,s
-        // temp >> (32-s)
-        shr eax,cl
-
-        // |
-        or r8d,eax
+        // rotate left s
+        rol r8d,cl
         // restore rcx content
         mov rcx,rbx
 
